@@ -1,0 +1,29 @@
+<h1>Okta Angular Core</h1>
+
+<div *ngIf="isAuthenticated">
+  <button class="btn btn-primary" (click)="oktaAuth.logout();">Log Out</button>
+  <p > You are authenticated</p>
+</div>
+
+<div *ngIf="!isAuthenticated">
+  <button class="btn btn-primary" (click)="oktaAuth.loginRedirect();">Log in</button>
+  <p > You are not authenticated</p>
+</div>
+
+<div>
+
+  <button class="btn btn-primary" (click)="getAuthData()">Fetch Auth Data</button>
+  <pre>
+    {{serverAuthData | json}}
+  </pre>
+</div>
+
+<div >
+  <button class="btn btn-primary" (click)="getPublicData()">Fetch Public Data</button>
+  <pre>
+    {{serverPublicData | json}}
+  </pre>
+</div>
+
+<router-outlet>
+</router-outlet>
